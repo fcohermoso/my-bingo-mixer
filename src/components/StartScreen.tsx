@@ -4,23 +4,55 @@ interface StartScreenProps {
 
 export function StartScreen({ onStart }: StartScreenProps) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
-      <div className="text-center max-w-sm">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Bingo Mixer</h1>
-        <p className="text-lg text-gray-600 mb-8">Find your people!</p>
+    <div 
+      className="flex flex-col items-center justify-center min-h-full p-6 bg-linear-to-br from-charcoal-900 to-charcoal-800 animate-[fade-in_0.6s_ease-out]"
+      style={{
+        backgroundImage: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)'
+      }}
+    >
+      <div className="text-center max-w-sm space-y-8">
+        {/* Title */}
+        <div 
+          className="animate-[fade-in_0.6s_ease-out_forwards]"
+          style={{ animation: 'fade-in 0.6s ease-out' }}
+        >
+          <h1 className="text-5xl font-bold text-off-white mb-2 font-display tracking-tight">
+            Bingo Mixer
+          </h1>
+          <p className="text-lg text-gold-light font-display">Find your people!</p>
+        </div>
         
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-          <h2 className="font-semibold text-gray-800 mb-3">How to play</h2>
-          <ul className="text-left text-gray-600 text-sm space-y-2">
-            <li>• Find people who match the questions</li>
-            <li>• Tap a square when you find a match</li>
-            <li>• Get 5 in a row to win!</li>
+        {/* Instructions Box */}
+        <div 
+          className="bg-charcoal-800 rounded-lg p-6 border-l-4 border-gold shadow-lg"
+          style={{ 
+            animation: 'fade-in 0.6s ease-out 0.2s both'
+          }}
+        >
+          <h2 className="font-semibold text-off-white mb-3 font-display text-sm">How to play</h2>
+          <ul className="text-left text-off-white/80 text-sm space-y-2 font-display">
+            <li className="flex items-start">
+              <span className="text-gold mr-2">•</span>
+              <span>Find people who match the questions</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-gold mr-2">•</span>
+              <span>Tap a square when you find a match</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-gold mr-2">•</span>
+              <span>Get 5 in a row to win!</span>
+            </li>
           </ul>
         </div>
 
+        {/* Button */}
         <button
           onClick={onStart}
-          className="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors"
+          className="w-full bg-midnight-600 text-gold-light font-semibold py-4 px-8 rounded-lg text-lg font-display transition-all duration-200 hover:bg-midnight-500 hover:text-gold active:scale-95 shadow-lg"
+          style={{ 
+            animation: 'fade-in 0.6s ease-out 0.4s both'
+          }}
         >
           Start Game
         </button>

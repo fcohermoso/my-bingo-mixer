@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "if npm test; then exit 0; else echo '{\"hookSpecificOutput\":{\"hookEventName\":\"Stop\",\"decision\":\"block\",\"reason\":\"Tests are failing. Fix tests before finishing.\"}}'; fi",
+        "timeout": 180
+      }
+    ]
+  }
+}

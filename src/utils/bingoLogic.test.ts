@@ -288,6 +288,28 @@ describe('bingoLogic', () => {
       expect(result).not.toBeNull();
     });
 
+    it('should detect a Four Corners win when all four corners are marked', () => {
+      const board = generateBoard();
+      [0, 4, 20, 24].forEach((i) => {
+        board[i].isMarked = true;
+      });
+
+      const result = checkBingo(board);
+
+      expect(result).not.toBeNull();
+      expect(result?.type).toBe('corners');
+      expect(result?.squares).toEqual([0, 4, 20, 24]);
+    });
+
+    it('should return null when only three corners are marked', () => {
+      const board = generateBoard();
+      [0, 4, 20].forEach((i) => {
+        board[i].isMarked = true;
+      });
+
+      expect(checkBingo(board)).toBeNull();
+    });
+
     it('should return the correct squares array for a winning line', () => {
       const board = generateBoard();
       [0, 1, 2, 3, 4].forEach((i) => {
